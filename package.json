@@ -18,7 +18,13 @@
     "url": "https://github.com/PrajwalMalokar/nodejs-demo-app/issues"
   },
   "homepage": "https://github.com/PrajwalMalokar/nodejs-demo-app#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "forceExit": true,
+    "detectOpenHandles": true
+  },
   "devDependencies": {
-    "jest": "^30.0.5"
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
   }
 }
