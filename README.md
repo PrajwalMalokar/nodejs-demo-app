@@ -18,6 +18,8 @@ A simple Node.js web server application that demonstrates basic HTTP server func
 - Server information display
 - Available routes navigation
 
+![alt text](image.png)
+
 ### API Endpoints
 - `/api/time` - Current timestamp and timezone info
 - `/api/status` - Server status and system information
