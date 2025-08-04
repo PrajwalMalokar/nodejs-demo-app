@@ -73,8 +73,8 @@ function getWelcomePage() {
     <body>
         <div class="container">
             <h1>🚀 Welcome to ${appName}!</h1>
-            <p>Your JavaScript web server is up and running!</p>
-            
+            <p>My JavaScript web server is up and running!</p>
+
             <div class="info">
                 <p><strong>Version:</strong> ${version}</p>
                 <p><strong>Server Time:</strong> ${new Date().toLocaleString()}</p>
@@ -225,18 +225,21 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(PORT, () => {
-    console.log(`🚀 ${appName} is running!`);
-    console.log(`📍 Server URL: http://localhost:${PORT}`);
-    console.log(`📊 Version: ${version}`);
-    console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
-    console.log('\n📋 Available routes:');
-    console.log(`   • http://localhost:${PORT}/`);
-    console.log(`   • http://localhost:${PORT}/about`);
-    console.log(`   • http://localhost:${PORT}/api/time`);
-    console.log(`   • http://localhost:${PORT}/api/status`);
-    console.log('\n💡 Press Ctrl+C to stop the server');
-});
+if (require.main === module) {
+    server.listen(PORT, () => {
+        console.log(`🚀 ${appName} is running!`);
+        console.log(`📍 Server URL: http://localhost:${PORT}`);
+        console.log(`📊 Version: ${version}`);
+        console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
+        console.log('\n📋 Available routes:');
+        console.log(`   • http://localhost:${PORT}/`);
+        console.log(`   • http://localhost:${PORT}/about`);
+        console.log(`   • http://localhost:${PORT}/api/time`);
+        console.log(`   • http://localhost:${PORT}/api/status`);
+        console.log('\n💡 Press Ctrl+C to stop the server');
+    });
+}
+module.exports = server;
 
 process.on('SIGINT', () => {
     console.log('\n🛑 Shutting down server...');
